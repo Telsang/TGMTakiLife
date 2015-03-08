@@ -1,7 +1,10 @@
+//Created by Telsang
+
 sleep 0.5;
 enableSaving [false, false];
 
-//Setting Friendlies
+//////////////////////////////////////////////////////////////////////
+////////////////Setting Friendlies////////////////////////////////////
 WEST setFriend [EAST, 0];
 WEST setFrined[RESISTANCE, 0];
 
@@ -14,6 +17,10 @@ RESISTANCE setFriend [WEST, 0];
 CIVILIAN setFriend [WEST, 0];
 CIVILIAN setFriend [EAST, 0];
 CIVILIAN setFriend [RESISTANCE, 0];
+
+
+//////////////////////////////////////////////////////////////////////
+////////////////Player Launch/////////////////////////////////////////
 
 isClient = !isServer ||(isServer && !isDedicated);
 
@@ -39,12 +46,24 @@ if (!isServer) then {
 				publicVariable "GesetzArray";
 				publicvariable "INV_ItemStocks";
 				format["if(%1)then{power1 setdamage 0;liafu = true;};if(%2)then{power2 setdamage 0;liafu = true;};", alive power1, alive power2] call broadcast;
-				missionNamespace setVariable [format["A_STAT_%1_LOADED", _uid], false];
-				waitUntil {!isNil "A_STAT_SLR"};
-				waitUntil {A_STAT_SLR};
-				publicVariable "A_STAT_SLR";
+				missionNamespace setVariable [format["TGM_STATS_%1_LOADED", _uid], false];
+				waitUntil {!isNil "TGM_STATS_SLR"};
+				waitUntil {TGM_STATS_SLR};
+				publicVariable "TGM_STATS_SLR";
 			};
 		
 	};
 
-if(!debug)then{["basicintro"] execVM "introcam.sqf";};
+//////////////////////////////////////////////////////////////////////
+////////////////Player Counts/////////////////////////////////////////
+copscount      		= 20;
+opfcount			= 20;
+inscount			= 20;
+civscount      		= 40;
+playercount    		= 100;
+
+//Exec Briefing
+execVM "briefing.sqf";
+
+//Exec Intro
+if(!debug)then{["tgmintro"] execVM "introcam.sqf";};
