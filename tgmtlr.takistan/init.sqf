@@ -1,5 +1,3 @@
-//Created by Telsang
-
 sleep 0.5;
 enableSaving [false, false];
 
@@ -67,3 +65,13 @@ execVM "briefing.sqf";
 
 //Exec Intro
 if(!debug)then{["tgmintro"] execVM "introcam.sqf";};
+
+//Exec Player Array
+_h = [] execVM "playerarrays.sqf";
+
+
+
+
+
+
+
