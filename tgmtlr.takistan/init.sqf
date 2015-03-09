@@ -60,6 +60,9 @@ inscount			= 20;
 civscount      		= 40;
 playercount    		= 100;
 
+debug          		= false;
+dedicatedServer 	= false;
+
 //Exec Briefing
 execVM "briefing.sqf";
 
